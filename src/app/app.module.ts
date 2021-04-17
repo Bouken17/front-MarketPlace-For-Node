@@ -16,6 +16,7 @@ import { HeaderPageComponent } from './components/partials/header-page/header-pa
 import { QuickViewModalComponent } from './components/partials/modal/quick-view-modal/quick-view-modal.component';
 import { AddToCartModalComponent } from './components/partials/modal/add-to-cart-modal/add-to-cart-modal.component';
 import { DeleteProductModalComponent } from './components/partials/modal/delete-product-modal/delete-product-modal.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { DeleteProductModalComponent } from './components/partials/modal/delete-
     DeleteProductModalComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
