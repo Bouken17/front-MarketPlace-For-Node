@@ -12,6 +12,7 @@ export class SignupComponent implements OnInit {
 
   signupForm :FormGroup;
   errorMessage;
+  loading: boolean;
 
   constructor(private fb: FormBuilder, private router: Router,
               private authService:AuthService) { }
@@ -24,14 +25,17 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit() {
+    this.loading = true;
     const email = this.signupForm.get('email').value;
     const password = this.signupForm.get('password').value;
     this.authService.signUp(email, password)
       .then(() => {
+        this.loading = false;
         this.router.navigate(['/shop']);
        })
       .catch(
         (err) => {
+          this.loading = false;
           this.errorMessage = err.message;
       }
     )

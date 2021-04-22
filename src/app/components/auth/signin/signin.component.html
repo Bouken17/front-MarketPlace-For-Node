@@ -1,5 +1,6 @@
 <app-header-page page="Login"></app-header-page>
-<div class="my-account pt-80 pb-80">
+<mat-spinner class="container text-center" style="margin-bottom: 300px;" *ngIf="loading"></mat-spinner>
+<div class="my-account pt-80 pb-80" *ngIf="!loading">
   <div class="container">
       <div class="row">
           <div class="col-12">

@@ -11,7 +11,7 @@ export class AuthService {
   private api = environment.api;
   token: string;
   userId: string;
-  isAuth$ = new BehaviorSubject<boolean>(false);
+  isAuth$ = new BehaviorSubject<boolean>(false);//behavior pour forcer à prendre klk choz par default sinon on utilise subject
 
   constructor(private http: HttpClient) {
     this.initAuth();
