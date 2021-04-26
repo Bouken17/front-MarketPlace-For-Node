@@ -10,9 +10,9 @@
                   <div class="card-body">
                       <div class="product-thumbnail position-relative">
                           <span class="badge badge-danger top-right">New</span>
-                          <a>
+                          <div [routerLink]="['/single-product',product._id]">
                               <img class="first-img" width="420" [src]="product.image" alt="thumbnail">
-                          </a>
+                          </div>
                           <!-- product links -->
                           <ul class="product-links d-flex justify-content-center">
 
@@ -35,8 +35,15 @@
                           </div>
                           <div class="d-flex align-items-center justify-content-between">
                               <h6 class="product-price">{{product.price/100 | currency:'EUR'}}</h6>
+                              <button class="pro-btn" *ngIf="userId === product.userId" [routerLink]="['/edit-product', product._id]"><i class="ion-android-create"></i></button>
+                              <button class="pro-btn" data-toggle="modal" [attr.data-target]="'#delete-product-'+product._id"
+                              *ngIf="userId === product.userId"
+                              ><i class="ion-android-remove"></i></button>
                               <button class="pro-btn" data-toggle="modal" data-target="#add-to-cart"><i class="icon-basket"></i></button>
                           </div>
+                          <app-delete-product-modal [product]="product"
+                          *ngIf="userId === product.userId"
+                          ></app-delete-product-modal>
                       </div>
                   </div>
               </div>
